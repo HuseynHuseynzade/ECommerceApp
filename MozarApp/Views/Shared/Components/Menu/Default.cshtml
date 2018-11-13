@@ -1,0 +1,37 @@
+﻿@model IEnumerable<MenuModel>
+<div class="mainmenu">
+    <nav>
+        <ul id="nav">
+            @foreach (var menuItem in Model)
+            {
+            <li>
+                <a href="shop-grid.html">@menuItem.Category.Name</a>
+                @if (menuItem.SubCategories.Count() > 0)
+                {
+                <div class="megamenu">
+                    <div class="megamenu-list clearfix">
+                        @foreach (var subMenu in menuItem.SubCategories)
+                        {
+                        <span>
+                            <a href="#" class="mega-title">@subMenu.Name</a>
+                            @if (subMenu.NestedCategories.Count() > 0)
+                            {
+                                foreach (var nestedMenu in subMenu.NestedCategories)
+                                {
+                                <a href="#">@nestedMenu.Name</a>
+                              
+                                }
+                            }
+                        </span>
+                        }
+
+
+                    </div>
+                </div>
+                }
+            </li>
+            }
+
+        </ul>
+    </nav>
+</div>

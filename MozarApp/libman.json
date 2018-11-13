@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "defaultProvider": "filesystem",
+  "libraries": [
+    {
+      "library": "C:\\Users\\SuleymaniTural\\Desktop\\mozar\\css",
+      "destination": "wwwroot/css/",
+      "files": [ "animate.css", "bootstrap.min.css", "font-awesome.min.css", "jquery-ui.css", "AjaxLoader.gif", "meanmenu.min.css", "owl.carousel.css", "responsive.css" ]
+
+    },
+    {
+      "destination": "wwwroot/js/",
+      "library": "C:\\Users\\SuleymaniTural\\Desktop\\mozar\\js"
+    },
+    {
+      "library": "C:\\Users\\SuleymaniTural\\Desktop\\mozar\\js\\vendor",
+      "destination": "wwwroot/js/vendor/"
+    },
+    {
+      "library": "C:\\Users\\SuleymaniTural\\Desktop\\mozar",
+      "files": [ "style.css" ],
+      "destination": "wwwroot/css/"
+    }
+  ]
+}
