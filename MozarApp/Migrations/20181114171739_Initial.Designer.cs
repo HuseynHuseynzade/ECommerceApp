@@ -10,7 +10,7 @@ using MozarApp.Models;
 namespace MozarApp.Migrations
 {
     [DbContext(typeof(MozarDbContext))]
-    [Migration("20181112133706_Initial")]
+    [Migration("20181114171739_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

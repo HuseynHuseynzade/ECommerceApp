@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MozarApp.Infrastructure;
 using MozarApp.Models;
 
 namespace MozarApp
@@ -29,6 +30,7 @@ namespace MozarApp
                 options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]);
             });
 
+            services.AddTransient<IDiscountCalculator, MozarAppDiscountCalculator>();
             services.AddIdentity<AppUser, IdentityRole>(options =>
             {
 

@@ -24,102 +24,115 @@ namespace MozarApp
                 {
                     if (mozarDbContext.Categories.Count() == 0)
                     {
-                        //add
+
                     }
+
+                    #region add product and images + stock info
                     if (mozarDbContext.Products.Count() == 0)
                     {
+
                         Product product = new Product
                         {
-                            Name = "1"
+                            Name = "Product"
                         };
-                        Product product2 = new Product
+                        Product product_2 = new Product
                         {
-                            Name = "2"
+                            Name = "Product_2"
                         };
-                        Product product3 = new Product
+                        Product product_3 = new Product
                         {
-                            Name = "3"
+                            Name = "Product_3"
                         };
-                        Product product4 = new Product
+                        Product product_4 = new Product
                         {
-                            Name = "4"
-                        };
-                        Product product5 = new Product
-                        {
-                            Name = "5"
-
-                        };
-                        Product product6 = new Product
-                        {
-                            Name = "6"
-                        };
-                        Product product7 = new Product
-                        {
-                            Name = "7"
-                        };
-                        Product product8 = new Product
-                        {
-                            Name = "8"
-                        };
-                        Product product9 = new Product
-                        {
-                            Name = "9"
+                            Name = "Product_4"
                         };
 
-
-                        mozarDbContext.Products.AddRange(product, product2);
+                        mozarDbContext.Products.AddRange(product, product_2, product_3, product_4);
                         mozarDbContext.SaveChanges();
 
                         ProductImage productImage = new ProductImage
                         {
-                            Path = "1.jpg",
-                            ProductId = product.Id
-                        };
-                        ProductImage productImage2 = new ProductImage
-                        {
                             Path = "2.jpg",
                             ProductId = product.Id
                         };
-                        ProductImage productImage3 = new ProductImage
+                        ProductImage productImage__2 = new ProductImage
                         {
-                            Path = "6.jpg",
+                            Path = "3.jpg",
                             ProductId = product.Id
                         };
-                        ProductImage productImage4 = new ProductImage
+
+                        ProductImage productImage2__ = new ProductImage
                         {
                             Path = "4.jpg",
-                            ProductId = product.Id
+                            ProductId = product_2.Id
                         };
-                        ProductImage productImage5 = new ProductImage
+                        ProductImage productImage2__2 = new ProductImage
                         {
                             Path = "5.jpg",
-                            ProductId = product.Id
+                            ProductId = product_2.Id
                         };
-                        ProductImage productImage6 = new ProductImage
+
+                        ProductImage productImage3__ = new ProductImage
                         {
                             Path = "6.jpg",
-                            ProductId = product.Id
+                            ProductId = product_3.Id
                         };
-                        ProductImage productImage7 = new ProductImage
+                        ProductImage productImage3__2 = new ProductImage
                         {
                             Path = "7.jpg",
-                            ProductId = product.Id
+                            ProductId = product_3.Id
                         };
-                        ProductImage productImage8 = new ProductImage
+
+                        ProductImage productImage4__ = new ProductImage
                         {
                             Path = "8.jpg",
-                            ProductId = product.Id
+                            ProductId = product_4.Id
                         };
-                        ProductImage productImage9 = new ProductImage
+                        ProductImage productImage4__2 = new ProductImage
                         {
                             Path = "9.jpg",
-                            ProductId = product.Id
+                            ProductId = product_4.Id
                         };
 
+                        mozarDbContext.Images.AddRange(productImage, productImage__2, productImage2__, productImage2__2, productImage3__, productImage3__2, productImage4__, productImage4__2);
+                        mozarDbContext.SaveChanges();
 
-                        mozarDbContext.Images.Add(productImage);
+
+                        Stock stock = new Stock();
+                        stock.ProductId = product.Id;
+                        stock.Price = 657;
+                        stock.DiscountPercentage = 4;
+                        stock.Count = 67;
+                        stock.Description = "This is product 1";
+
+                        Stock stock2 = new Stock();
+                        stock2.ProductId = product_2.Id;
+                        stock2.Price = 1200;
+                        stock2.DiscountPercentage = 14;
+                        stock2.Count = 34;
+                        stock2.Description = "This is product 2";
+
+                        Stock stock3 = new Stock();
+                        stock3.ProductId = product_3.Id;
+                        stock3.Price = 340;
+                        stock3.DiscountPercentage = 2;
+                        stock3.Count = 4;
+                        stock3.Description = "This is product 3";
+
+                        Stock stock4 = new Stock();
+                        stock4.ProductId = product_4.Id;
+                        stock4.Price = 2300;
+                        stock4.DiscountPercentage = 30;
+                        stock4.Count = 24;
+                        stock4.Description = "This is product 4";
+
+                        mozarDbContext.Stock.AddRange(stock, stock2, stock3, stock4);
                         mozarDbContext.SaveChanges();
                     }
+                    #endregion
+
+                   
 
                 }
 
