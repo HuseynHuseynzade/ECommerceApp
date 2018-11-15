@@ -10,34 +10,103 @@
         </div>
         <div class="row">
             <div class="product-carousel">
+
                 @foreach (var saleOff in Model.SaleOffs)
                 {
-                    <div class="col-md-3">
-                        <!--item 1 start-->
-                        <div class="single-product-item">
-                            <div class="sale-product-label"><span>sale</span></div>
-                            <div class="single-product clearfix">
-                                <a href="#">
-                                    <span class="product-image">
-                                        <img src="img/product/@saleOff.Images.ProductImage" alt="">
-                                    </span>
-                                    <span class="product-image hover-image">
-                                        <img src="img/product/@saleOff.Images.HoverImage" alt="">
-                                    </span>
-                                </a>
-                            </div>
-                            <h2 class="single-product-name"><a href="#">saleOff.ProductName</a></h2>
-                            <div class="price-box">
-                                <p class="old-price">
-                                    <span class="price">@saleOff.OldPrice</span>
-                                </p>
-                                <p class="special-price">
-                                    <span class="price">@saleOff.NewPrice</span>
-                                </p>
-                            </div>
-                        </div><!--end of item 1-->
-                    </div><!--end of col-md-3-->
+                    @if (saleOff.OldPrice != saleOff.NewPrice)
+                    {
+
+                        <div class="col-md-3">
+                            <!--item 1 start-->
+                            <div class="single-product-item">
+                                <div class="sale-product-label"><span>sale</span></div>
+                                <div class="single-product clearfix">
+                                    <a href="#">
+                                        <span class="product-image">
+                                            <img src="img/product/@saleOff.Images.ProductImage" alt="">
+                                        </span>
+                                        <span class="product-image hover-image">
+                                            <img src="img/product/@saleOff.Images.HoverImage" alt="">
+                                        </span>
+                                    </a>
+                                </div>
+                                <h2 class="single-product-name"><a href="#">@saleOff.ProductName</a></h2>
+                                <div class="price-box">
+                                    <p class="old-price">
+                                        <span class="price">@saleOff.OldPrice</span>
+                                    </p>
+                                    <p class="special-price">
+                                        <span class="price">@saleOff.NewPrice</span>
+                                    </p>
+                                </div>
+                            </div><!--end of item 1-->
+                        </div>
+                    }<!--end of col-md-3-->
                 }
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="product-carousel">
+                @foreach (var newProduct in Model.NewProducts)
+                {
+                    if (newProduct.OldPrice != newProduct.NewPrice)
+                    {
+
+
+                        <div class="col-md-3">
+                            <!--item 1 start-->
+                            <div class="single-product-item">
+                                <div class="sale-product-label"><span>sale</span></div>
+                                <div class="single-product clearfix">
+                                    <a href="#">
+                                        <span class="product-image">
+                                            <img src="img/product/@newProduct.Images.ProductImage" alt="">
+                                        </span>
+                                        <span class="product-image hover-image">
+                                            <img src="img/product/@newProduct.Images.HoverImage" alt="">
+                                        </span>
+                                    </a>
+                                </div>
+                                <h2 class="single-product-name"><a href="#">@newProduct.ProductName</a></h2>
+                                <div class="price-box">
+                                    <p class="old-price">
+                                        <span class="price">@newProduct.OldPrice</span>
+                                    </p>
+                                    <p class="special-price">
+                                        <span class="price">@newProduct.NewPrice</span>
+                                    </p>
+                                </div>
+                            </div><!--end of item 1-->
+                        </div>
+                    }
+                    else if(newProduct.OldPrice == newProduct.NewPrice)
+                    { <div class="col-md-3">
+                            <!--item 1 start-->
+                            <div class="single-product-item">
+                                <div class="new-product-label"><span>New</span></div>
+                                <div class="single-product clearfix">
+                                    <a href="#">
+                                        <span class="product-image">
+                                            <img src="img/product/@newProduct.Images.ProductImage" alt="">
+                                        </span>
+                                        <span class="product-image hover-image">
+                                            <img src="img/product/@newProduct.Images.HoverImage" alt="">
+                                        </span>
+                                    </a>
+                                </div>
+                                <h2 class="single-product-name"><a href="#">@newProduct.ProductName</a></h2>
+                                <div class="price-box">
+                                    <p class="special-price">
+                                        <span class="price">@newProduct.NewPrice</span>
+                                    </p>
+                                </div>
+                            </div><!--end of item 1-->
+                        </div>
+                    }<!--end of col-md-3-->
+                 }
 
 
             </div>

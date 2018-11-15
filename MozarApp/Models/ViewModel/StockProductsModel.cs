@@ -14,13 +14,13 @@ namespace MozarApp.Models.ViewModel
         public decimal NewPrice { get; set; }
     }
 
-    //public class NewProduct
-    //{
-    //    public string ProductName { get; set; }
-    //    public ProductSaleImage Images { get; set; }
-    //    public decimal OldPrice { get; set; }
-    //    public decimal NewPrice { get; set; }
-    //}
+    public class NewProduct
+    {
+        public string ProductName { get; set; }
+        public ProductSaleImage Images { get; set; }
+        public decimal OldPrice { get; set; }
+        public decimal NewPrice { get; set; }
+    }
 
     public class ProductSaleImage
     {
@@ -31,7 +31,7 @@ namespace MozarApp.Models.ViewModel
     public class StockProductsModel
     {
         public IEnumerable<SaleOff> SaleOffs { get; set; }
-        // public IEnumerable<NewProduct> NewProduct { get; set; }
+        public IEnumerable<NewProduct> NewProducts { get; set; }
     }
 
 

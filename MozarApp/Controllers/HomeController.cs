@@ -23,10 +23,11 @@ namespace MozarApp.Controllers
         public async Task<IActionResult>  Index()
         {
             StockProductsModel stockProductsModel = new StockProductsModel();
-
             
 
-          stockProductsModel.SaleOffs= await _mozarDbContext.Stock.OrderByDescending(x => x.DiscountPercentage)
+
+
+            stockProductsModel.SaleOffs= await _mozarDbContext.Stock.OrderByDescending(x => x.DiscountPercentage)
                                       .Include(x => x.Product)
                                              .Include(x => x.Product.Images)
                                              .Take(6)
@@ -42,7 +43,24 @@ namespace MozarApp.Controllers
                                                     }
                                                 }).ToListAsync();
 
-            
+            stockProductsModel.NewProducts = await _mozarDbContext.Stock.OrderByDescending(x => x.DiscountPercentage)
+                                      .Include(x => x.Product)
+                                             .Include(x => x.Product.Images)
+                                             .Take(8)
+                                                .Select(x => new NewProduct()
+                                                {
+                                                    
+                                                    ProductName = x.Product.Name,
+                                                    OldPrice = x.Price,
+                                                    
+                                                    NewPrice = _discountCalculator.GetDiscount(x.Price, x.DiscountPercentage),
+                                                    Images = new ProductSaleImage()
+                                                    {
+                                                        HoverImage = x.Product.Images.Skip(1).FirstOrDefault().Path,
+                                                        ProductImage = x.Product.Images.FirstOrDefault().Path
+                                                    }
+                                                }).ToListAsync();
+
             return View(stockProductsModel);
         }
     }
